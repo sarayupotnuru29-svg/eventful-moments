@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, Heart, PartyPopper, Gem, Cake, Briefcase, Camera, Image, Sparkles, Flower, UtensilsCrossed, Lightbulb, Music, Palette, Home, HeartHandshake, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { SERVICES, WHATSAPP } from "@/lib/constants";
+import { Heart, PartyPopper, Gem, Cake, Briefcase, Camera, Image, Sparkles, Flower, UtensilsCrossed, Lightbulb, Music, Palette, Home, HeartHandshake, Star } from "lucide-react";
+import { SERVICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const iconMap: { [key: string]: any } = {
@@ -23,24 +22,25 @@ const iconMap: { [key: string]: any } = {
   star: Star,
 };
 
-const serviceImages = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
-  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
-  "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80",
-  "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
-  "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80",
-  "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80",
-  "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80",
-  "https://images.unsplash.com/photo-1561128290-006dc4827214?w=600&q=80",
-  "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80",
-  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80",
-  "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80",
-  "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80",
-  "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600&q=80",
-];
+// Service-specific premium images matched to each service type
+const serviceImages: { [key: string]: string } = {
+  "wedding-planning": "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+  "wedding-reception": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80",
+  "engagement-ceremony": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80",
+  "birthday-parties": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
+  "corporate-events": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+  "photography-videography": "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80",
+  "pre-wedding-shoot": "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80",
+  "stage-decoration": "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80",
+  "flower-decoration": "https://images.unsplash.com/photo-1561128290-006dc4827214?w=600&q=80",
+  "catering-services": "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80",
+  "lighting-sound": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80",
+  "dj-entertainment": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80",
+  "theme-decorations": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80",
+  "housewarming": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+  "anniversary": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80",
+  "cultural-events": "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600&q=80",
+};
 
 const ServicesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -96,7 +96,7 @@ const ServicesSection = () => {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={serviceImages[index % serviceImages.length]}
+                    src={serviceImages[service.id] || "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -111,24 +111,9 @@ const ServicesSection = () => {
                   <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  <p className="text-muted-foreground text-sm line-clamp-3">
                     {service.description}
                   </p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-primary/30 hover:bg-primary hover:text-primary-foreground group-hover:border-primary"
-                  >
-                    <a
-                      href={WHATSAPP.getUrl(`Hello, I'm interested in your ${service.title} service.`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      Enquire Now
-                    </a>
-                  </Button>
                 </div>
               </div>
             );
