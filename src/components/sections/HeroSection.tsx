@@ -74,8 +74,8 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 hero-overlay" />
+      {/* Overlay - Consistent dark overlay for text visibility in both themes */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
       {/* Gold Decorative Elements */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-20">
