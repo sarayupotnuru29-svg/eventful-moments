@@ -54,7 +54,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] overflow-hidden">
+    <section id="home" className="relative h-screen min-h-[600px] max-h-[100svh] sm:min-h-[700px] overflow-hidden">
       {/* Background Slides */}
       {heroImages.map((image, index) => (
         <div
@@ -101,28 +101,28 @@ const HeroSection = () => {
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
           {/* Tagline */}
-          <p className="text-primary font-medium tracking-widest uppercase text-sm md:text-base mb-4 animate-fade-in opacity-0" style={{ animationDelay: "0.2s" }}>
+          <p className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm md:text-base mb-3 sm:mb-4 animate-fade-in opacity-0" style={{ animationDelay: "0.2s" }}>
             {BUSINESS_TAGLINE}
           </p>
 
           {/* Main Heading */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-in opacity-0 text-balance max-w-5xl mx-auto leading-tight" style={{ animationDelay: "0.4s" }}>
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in opacity-0 text-balance max-w-5xl mx-auto leading-tight" style={{ animationDelay: "0.4s" }}>
             Turning Your Events Into{" "}
             <span className="text-gold-gradient">Timeless Experiences</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in opacity-0" style={{ animationDelay: "0.6s" }}>
+          <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-in opacity-0 px-2" style={{ animationDelay: "0.6s" }}>
             From intimate gatherings to grand celebrations, we transform your dreams into 
             reality with creativity, precision, and passion.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in opacity-0" style={{ animationDelay: "0.8s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-fade-in opacity-0 w-full px-4 sm:px-0" style={{ animationDelay: "0.8s" }}>
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-14 px-8 text-lg shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-14 px-8 text-base sm:text-lg shadow-lg w-full sm:w-auto"
             >
               <a href={WHATSAPP.getUrl()} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
@@ -133,7 +133,7 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               onClick={scrollToServices}
-              className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white gap-2 h-14 px-8 text-lg backdrop-blur-sm"
+              className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white gap-2 h-14 px-8 text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
             >
               View Our Services
               <ArrowDown className="h-5 w-5" />

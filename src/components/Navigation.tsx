@@ -144,7 +144,7 @@ const Navigation = () => {
                           e.preventDefault();
                           scrollToSection(link.href);
                         }}
-                        className="px-4 py-3 text-lg font-medium text-foreground hover:bg-primary/10 rounded-lg transition-colors"
+                        className="px-4 py-4 text-lg font-medium text-foreground hover:bg-primary/10 rounded-lg transition-colors"
                       >
                         {link.label}
                       </a>
@@ -155,7 +155,7 @@ const Navigation = () => {
                   <div className="mt-auto pb-8">
                     <Button
                       asChild
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-12"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-14 text-base"
                     >
                       <a href={WHATSAPP.getUrl()} target="_blank" rel="noopener noreferrer">
                         <Phone className="h-5 w-5" />

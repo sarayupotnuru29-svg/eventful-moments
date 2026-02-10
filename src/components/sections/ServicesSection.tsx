@@ -64,8 +64,8 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="services" ref={sectionRef} className="py-16 sm:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
@@ -94,10 +94,11 @@ const ServicesSection = () => {
                 style={{ transitionDelay: `${Math.min(index * 50, 400)}ms` }}
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-44 sm:h-48 overflow-hidden">
                   <img
                     src={serviceImages[service.id] || "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"}
                     alt={service.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
