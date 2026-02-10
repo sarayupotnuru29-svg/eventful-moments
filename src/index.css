@@ -6,13 +6,11 @@
 
 /* 
 Design System: Jai Anjaniputra Event Management
-Color Palette: Black + Gold + White (Luxury Wedding Theme)
-Typography: Playfair Display (headings) + Poppins (body)
+Luxury Wedding Theme
 */
 
 @layer base {
   :root {
-    /* Core Colors - Light Mode */
     --background: 0 0% 100%;
     --foreground: 0 0% 4%;
 
@@ -22,38 +20,26 @@ Typography: Playfair Display (headings) + Poppins (body)
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 4%;
 
-    /* Gold as Primary */
     --primary: 43 74% 52%;
     --primary-foreground: 0 0% 4%;
 
-    /* Soft Gold Secondary */
     --secondary: 40 45% 90%;
     --secondary-foreground: 0 0% 4%;
 
-    /* Muted tones */
     --muted: 40 20% 96%;
     --muted-foreground: 0 0% 35%;
 
-    /* Gold Accent */
     --accent: 43 74% 52%;
     --accent-foreground: 0 0% 4%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
 
     --border: 40 20% 88%;
     --input: 40 20% 88%;
     --ring: 43 74% 52%;
 
     --radius: 0.5rem;
-
-    /* Gradients */
-    --gold-gradient: linear-gradient(135deg, hsl(43, 74%, 52%) 0%, hsl(40, 60%, 65%) 50%, hsl(43, 74%, 52%) 100%);
-    --gold-shimmer: linear-gradient(90deg, hsl(43, 74%, 52%) 0%, hsl(45, 80%, 70%) 50%, hsl(43, 74%, 52%) 100%);
   }
 
   .dark {
-    /* Dark Mode */
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
@@ -63,21 +49,14 @@ Typography: Playfair Display (headings) + Poppins (body)
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 43 74% 52%;
-    --primary-foreground: 0 0% 4%;
-
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 43 74% 52%;
-    --accent-foreground: 0 0% 4%;
-
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 43 74% 52%;
   }
 }
 
@@ -88,6 +67,8 @@ Typography: Playfair Display (headings) + Poppins (body)
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-size: 18px;          /* ✅ BIGGER DEFAULT TEXT */
+    line-height: 1.75;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -95,21 +76,52 @@ Typography: Playfair Display (headings) + Poppins (body)
   }
 }
 
-/* ---------------- COMPONENTS ---------------- */
+/* ---------------- MOBILE TEXT BOOST ---------------- */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 18px;          /* Mobile base text */
+    line-height: 1.8;
+  }
+
+  h1 {
+    font-size: 2rem;          /* ~32px */
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 1.7rem;        /* ~27px */
+  }
+
+  h3 {
+    font-size: 1.35rem;       /* ~22px */
+  }
+
+  p {
+    font-size: 1.05rem;       /* ~17px */
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------- COMPONENT STYLES ---------------- */
 
 @layer components {
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(43, 74%, 52%), hsl(45, 80%, 70%), hsl(43, 74%, 52%));
+    background: linear-gradient(
+      135deg,
+      hsl(43, 74%, 52%) 0%,
+      hsl(45, 80%, 70%) 50%,
+      hsl(43, 74%, 52%) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .shadow-elegant {
     box-shadow: 0 10px 40px -10px hsla(0, 0%, 0%, 0.15);
-  }
-
-  .dark .shadow-elegant {
-    box-shadow: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
   }
 
   .gold-underline {
@@ -124,7 +136,12 @@ Typography: Playfair Display (headings) + Poppins (body)
     transform: translateX(-50%);
     width: 70px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, hsl(43, 74%, 52%), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(43, 74%, 52%),
+      transparent
+    );
   }
 
   .card-hover-gold {
@@ -137,33 +154,15 @@ Typography: Playfair Display (headings) + Poppins (body)
     box-shadow: 0 0 30px hsla(43, 74%, 52%, 0.2);
     transform: translateY(-5px);
   }
-
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 0%, 0.6),
-      hsla(0, 0%, 0%, 0.4),
-      hsla(0, 0%, 0%, 0.7)
-    );
-  }
-
-  /* Parallax (desktop only) */
-  .parallax {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  @media (min-width: 768px) {
-    .parallax {
-      background-attachment: fixed;
-    }
-  }
 }
 
 /* ---------------- UTILITIES ---------------- */
 
 @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -171,22 +170,5 @@ Typography: Playfair Display (headings) + Poppins (body)
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* ---------------- MOBILE FIXES ---------------- */
-
-@media (max-width: 767px) {
-  .card-hover-gold:hover {
-    transform: none;
-  }
-
-  .gold-underline::after {
-    width: 50px;
-    bottom: -4px;
   }
 }
