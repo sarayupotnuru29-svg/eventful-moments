@@ -23,9 +23,9 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="about" ref={sectionRef} className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           {/* Image Side */}
           <div
             className={cn(

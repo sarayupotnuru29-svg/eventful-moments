@@ -40,8 +40,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" ref={sectionRef} className="py-16 sm:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">

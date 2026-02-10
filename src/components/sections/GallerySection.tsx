@@ -47,8 +47,8 @@ const GallerySection = () => {
     : galleryImages.filter((img) => img.category === selectedCategory);
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="gallery" ref={sectionRef} className="py-16 sm:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
@@ -96,9 +96,10 @@ const GallerySection = () => {
               <img
                 src={image.url}
                 alt={image.category}
+                loading="lazy"
                 className={cn(
                   "w-full object-cover group-hover:scale-110 transition-transform duration-500",
-                  index === 0 || index === 5 ? "h-full min-h-[300px]" : "h-48 md:h-56"
+                  index === 0 || index === 5 ? "h-full min-h-[250px] sm:min-h-[300px]" : "h-44 sm:h-48 md:h-56"
                 )}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />

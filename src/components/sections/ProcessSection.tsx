@@ -27,8 +27,8 @@ const ProcessSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">

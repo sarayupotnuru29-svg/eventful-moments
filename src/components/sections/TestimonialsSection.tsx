@@ -39,8 +39,8 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" ref={sectionRef} className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 max-w-[90%] sm:max-w-none">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
           )}
         >
           {/* Main Card */}
-          <div className="bg-card rounded-3xl p-8 md:p-12 shadow-elegant border border-border relative overflow-hidden">
+          <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-elegant border border-border relative overflow-hidden">
             {/* Quote Icon */}
             <div className="absolute top-6 right-6 opacity-10">
               <Quote className="h-24 w-24 text-primary" />
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Testimonial Text */}
-            <blockquote className="font-heading text-xl md:text-2xl text-foreground mb-8 leading-relaxed relative z-10">
+            <blockquote className="font-heading text-lg sm:text-xl md:text-2xl text-foreground mb-6 sm:mb-8 leading-relaxed relative z-10">
               "{TESTIMONIALS[currentIndex].text}"
             </blockquote>
 
