@@ -125,3 +125,130 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+
+
+// import { useEffect, useRef, useState } from "react";
+// import {
+//   Heart,
+//   PartyPopper,
+//   Gem,
+//   Cake,
+//   Briefcase,
+//   Camera,
+//   Image,
+//   Sparkles,
+//   Flower,
+//   UtensilsCrossed,
+//   Lightbulb,
+//   Music,
+//   Palette,
+//   Home,
+//   HeartHandshake,
+//   Star,
+// } from "lucide-react";
+// import { SERVICES } from "@/lib/constants";
+// import { cn } from "@/lib/utils";
+
+// const iconMap: { [key: string]: any } = {
+//   heart: Heart,
+//   "party-popper": PartyPopper,
+//   gem: Gem,
+//   cake: Cake,
+//   briefcase: Briefcase,
+//   camera: Camera,
+//   image: Image,
+//   sparkles: Sparkles,
+//   flower: Flower,
+//   utensils: UtensilsCrossed,
+//   lightbulb: Lightbulb,
+//   music: Music,
+//   palette: Palette,
+//   home: Home,
+//   "heart-handshake": HeartHandshake,
+//   star: Star,
+// };
+
+// const serviceImages: { [key: string]: string } = {
+//   "wedding-planning":
+//     "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+//   "birthday-parties":
+//     "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
+// };
+
+// const ServicesSection = () => {
+//   const sectionRef = useRef<HTMLDivElement>(null);
+//   const [isVisible, setIsVisible] = useState(false);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => entry.isIntersecting && setIsVisible(true),
+//       { threshold: 0.1 }
+//     );
+//     sectionRef.current && observer.observe(sectionRef.current);
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <section
+//       id="services"
+//       ref={sectionRef}
+//       className="py-12 md:py-24 bg-secondary/30"
+//     >
+//       <div className="container mx-auto px-4">
+//         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+//           <p className="text-primary uppercase tracking-widest text-sm mb-4">
+//             What We Offer
+//           </p>
+//           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">
+//             Our Premium Services
+//           </h2>
+//           <p className="text-muted-foreground">
+//             From concept to execution, we offer comprehensive event management
+//             services tailored to your vision.
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+//           {SERVICES.map((service, index) => {
+//             const Icon = iconMap[service.icon] || Star;
+//             return (
+//               <div
+//                 key={service.id}
+//                 className={cn(
+//                   "bg-card rounded-2xl overflow-hidden shadow-elegant transition-all",
+//                   isVisible
+//                     ? "opacity-100 translate-y-0"
+//                     : "opacity-0 translate-y-6"
+//                 )}
+//                 style={{ transitionDelay: `${index * 50}ms` }}
+//               >
+//                 <div className="relative h-40 sm:h-48 overflow-hidden">
+//                   <img
+//                     src={
+//                       serviceImages[service.id] ||
+//                       "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+//                     }
+//                     alt={service.title}
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+
+//                 <div className="p-5">
+//                   <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
+//                     <Icon className="h-5 w-5 text-primary" />
+//                     {service.title}
+//                   </h3>
+//                   <p className="text-sm text-muted-foreground line-clamp-3">
+//                     {service.description}
+//                   </p>
+//                 </div>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default ServicesSection;
